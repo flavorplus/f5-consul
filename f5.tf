@@ -60,7 +60,7 @@ resource "aws_instance" "f5" {
   ami = local.amis[var.aws_region]
 
   # The SSH key used to login after setup
-  key_name = aws_key_pair.default
+  key_name = aws_key_pair.default.id
 
   # Our Security group to allow HTTP and SSH access
   vpc_security_group_ids = [aws_security_group.f5.id]
