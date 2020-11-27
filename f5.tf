@@ -1,7 +1,7 @@
 # AWS ami's for the F5
 locals {
   amis = {
-    eu-central-1 = "ami-052749e2b5082eced"
+    eu-central-1 = "ami-064f074c0fa0cb2f0"
   }
 }
 
