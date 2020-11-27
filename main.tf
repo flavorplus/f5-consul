@@ -12,10 +12,8 @@ provider "random" {
 
 resource "random_pet" "name" {
   length = 2
-  prefix = "F5_Consul_Demo-"
+  prefix = "F5_Consul_Demo"
 }
-
-
 
 locals {
   # Common tags to be assigned to all resources

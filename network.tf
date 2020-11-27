@@ -1,5 +1,5 @@
 resource "aws_vpc" "default" {
-  cidr_block           = "10.0.0.0/16"
+  cidr_block           = var.cidr
   enable_dns_hostnames = true
 
   tags = local.common_tags
@@ -7,7 +7,7 @@ resource "aws_vpc" "default" {
 
 resource "aws_subnet" "default" {
   vpc_id     = aws_vpc.default.id
-  cidr_block = "10.0.0.0/24"
+  cidr_block = var.cidr
 
   tags = local.common_tags
 }
@@ -30,3 +30,8 @@ resource "aws_subnet" "default" {
 #     Name = "aws_route_table"
 #   }
 # }
+
+resource "aws_key_pair" "default" {
+  key_name   = random_pet.name.id
+  public_key = var.ssh_public_key
+}
