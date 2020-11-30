@@ -63,8 +63,9 @@ resource "aws_instance" "f5" {
   key_name = aws_key_pair.default.id
 
   # Our Security group to allow HTTP and SSH access
-  vpc_security_group_ids = [aws_security_group.f5.id]
-  subnet_id              = aws_subnet.default.id
+  vpc_security_group_ids      = [aws_security_group.f5.id]
+  subnet_id                   = aws_subnet.default.id
+  associate_public_ip_address = true
 
   #Instance tags
   tags = local.common_tags
